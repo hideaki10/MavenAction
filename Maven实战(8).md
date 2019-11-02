@@ -16,6 +16,8 @@ com.icegreen.greenmail又依赖javax.mail，javaxmail依赖范围是compile
 
 单看依赖传递还是很好理解的，但是加入依赖范围就比较容易搞混。所以总结了一张表
 
+![avatar](https://github.com/hideaki10/MavenAction/blob/master/Maven传递依赖.png)
+
 
 
 
