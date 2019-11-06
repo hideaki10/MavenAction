@@ -61,9 +61,9 @@ Maven的仓库分为本地和远程，远程又分为中央，私服，公共库
 
 当然不想用默认目录，自己也可以自定义。自定义有2种方法
 
-1. 修改 ～/.m2/setting,xml 一个当前用户
+1. 修改 ～/.m2/setting,xml 只对当前用户有效
 
-2. 修改 $M2_HOME/conf/setting.xml 一个是所有用户的设定
+2. 修改 $M2_HOME/conf/setting.xml 对所有用户有效
 
 6.3.2 ～ 6.3.4 远程仓库
 
@@ -99,7 +99,7 @@ Mave的默认远程仓库是中央仓库,可以在超级pom($M2_HOME/lib/maven-x
     <enable>true</enable>
     </release>
     <snapshots>
-    		<enable>false</enable>
+    <enable>false</enable>
     </snapshots>
     <layout>defalut</layout>
   	</repositories>
