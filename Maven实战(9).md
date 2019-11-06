@@ -45,3 +45,68 @@ private String formatAsDirectory(String directory){
 
 
 
+6.3 仓库的分类
+
+Maven的仓库分为本地和远程，远程又分为中央，私服，公共库。
+
+6.3.1 本地仓库
+
+本地的仓库的默认目录
+
+1. Windows → C:￥Use￥用户名¥.m2¥repository
+
+2. Linux → /home/用户名/.m2/repository
+
+3. Mac → /Users/用户名/.m2/repository   
+
+当然不想用默认目录，自己也可以自定义。自定义有2种方法
+
+1. 修改 ～/.m2/setting,xml 一个当前用户
+
+2. 修改 $M2_HOME/conf/setting.xml 一个是所有用户的设定
+
+6.3.2 ～ 6.3.4 远程仓库
+
+Mave的默认远程仓库是中央仓库,可以在超级pom($M2_HOME/lib/maven-x.x.x-uber.jar)里面找到中央仓库
+
+的配置。本地仓库本来是空的，在执行第一个Maven命令的时候，会从中央仓库下载jar包到中央仓库。
+
+还有一种远程仓库是私服，一般在局域网里面使用。从中央仓库哪里下载jar包放倒私服，然后供局域网
+
+里面的Maven用户使用。用私服有几个好处
+
+1. 节省外网带宽
+
+2. 能部署中央仓库没有的第三方的jar包
+
+3. 连接局域网可以增强稳定性
+
+4. 降低中央仓库的负荷
+
+6.4 远程仓库的配置
+
+远程仓库除了中央仓库，私服还有第三方的公开仓库。有时候要用到第三方公开仓库，需要在pom里面
+
+配置。
+
+```xml
+<project>
+  <repositories>
+    <id>jboss</id>
+    <name>JBoss Repository</name>
+    <url>http://reposity.jboss.com/maven2</url>
+    <release>
+    <enable>true</enable>
+    </release>
+    <snapshots>
+    		<enable>false</enable>
+    </snapshots>
+    <layout>defalut</layout>
+  	</repositories>
+</project>
+```
+
+配置里面的id 必须是唯一，中央仓库的id是central 如果在pom重新声明了central，那么就会覆盖了默认的中央仓库。
+
+
+
