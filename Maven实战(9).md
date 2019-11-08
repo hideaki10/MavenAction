@@ -164,5 +164,38 @@ id 的设置必须和 pom里面的 id一致。
 
 
 
+### 6.5 快照版本
 
+假设一个项目里同时开发A模块和B模块，并且B模块依赖A模块。那么在开发过程中，如何将新版B模块交付给A模块。
+
+Maven就利用快照版本来解决这个问题。B模块构建的时候，将版本设定为SNAOPSHOT，然后部署到私服上去。
+
+当A模块依赖B模块时候，由于版本是快照版，Maven会自己检查该版本是否为快照的最新版。然后到最后发布时候，
+
+在将版本改回正式版。
+
+### 6.6 从仓库解析依赖的机制
+
+### 6.7镜像
+
+有时候连接中央仓库的速度非常感人，那就需要连接到速度更快的镜像网站来获取包。在setting.xml里面设置mirror就可
+
+以使用了
+
+```xml
+<settings>
+  <mirrors>
+    <mirror>
+    	<id>maven.net.cn</id>
+      <name>one of the central mirrors in china</name> 
+      <url>http://maven.net.cn/content/groups/public/</url>
+      <mirrorOf>central</mirrorOf> //表示中央仓库的镜像
+    </mirror>
+  </mirrors>
+</settings>
+```
+
+
+
+### 6.8 仓库搜素服务
 
